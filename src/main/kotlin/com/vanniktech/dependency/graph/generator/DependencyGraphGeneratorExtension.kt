@@ -31,7 +31,7 @@ open class DependencyGraphGeneratorExtension {
     /** Allows to tweak the formatting of a single dependency in the graph. */
     val dependencyFormattingOptions: (ResolvedDependency) -> GraphFormattingOptions = { GraphFormattingOptions() },
     /** The formatting options for the root - the project this generator is applied too. */
-    val rootFormattingOptions: GraphFormattingOptions = GraphFormattingOptions(),
+    val rootFormattingOptions: (Project) -> GraphFormattingOptions = { GraphFormattingOptions() },
     /** Optional header that can be displayed wrapped around the graph. */
     val header: Header? = null,
     /** Return true when you want to include this configuration, false otherwise. */

@@ -31,7 +31,7 @@ internal class DotGenerator(
     // Generate top level projects.
     projects.forEach {
       val projectId = it.dotIdentifier
-      val settings = generator.rootFormattingOptions.withLabel(it.name)
+      val settings = generator.rootFormattingOptions(it).withLabel(it.name)
       content.append("  $projectId $settings;\n")
       addedDependencies.add(projectId)
     }

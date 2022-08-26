@@ -10,7 +10,7 @@ internal fun String.nonEmptyPrepend(prepend: String) =
     if (isNotEmpty()) prepend + this else this
 
 internal fun String.toHyphenCase(): String {
-  if (isBlank()) return this
+  if (length == 0 || indices.all { this[it].isWhitespace() }) return this
 
   return this[0].toLowerCase().toString() + toCharArray()
       .map { it.toString() }
